@@ -293,3 +293,50 @@ const logBookTheme = (title) => {
 };
 
 logBookTheme("Computers");
+
+// 17.1
+
+const bookCategories =
+  "science;computing;computer science;algorithms;business;operating systems;networking;electronics";
+
+const logBookCategories = (categories) => {
+  const c = categories.split(";");
+  for (const item of c) {
+    console.log(item);
+  }
+};
+
+logBookCategories(bookCategories);
+
+// 17.2
+
+const getKeywordsAsString = (bookss) => {
+  const keywordsSet = new Set();
+  for (const book of bookss) {
+    for (const keyword of book.keywords) {
+      keywordsSet.add(keyword);
+    }
+  }
+  console.log(keywordsSet);
+  return [...keywordsSet].join(";");
+};
+
+console.log(getKeywordsAsString(books));
+
+// 17.3
+
+const bookChapters = [
+  ["The Basics", 14],
+  ["Sorting", 254],
+  ["Searching", 372],
+  ["Graphs", 526],
+  ["Strings", 706],
+];
+
+const logBookChapters = (bookChapters) => {
+  for (const bookChapter of bookChapters) {
+    console.log(bookChapter[0].padEnd(30, "_") + bookChapter[1]);
+  }
+};
+
+logBookChapters(bookChapters);
