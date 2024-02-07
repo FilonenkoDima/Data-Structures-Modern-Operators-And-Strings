@@ -252,3 +252,44 @@ const isContributor = (authorName) => {
 
 console.log(isContributor("Julie Sussman (Contributor)"));
 console.log(isContributor("Robert Sedgewick"));
+
+// 16.1
+
+const normalizeAuthorName = (author) => {
+  const lowerName = author.toLowerCase().replace("(contributor)", "").trim();
+  const indexOfSpace = lowerName.indexOf(" ");
+  return (
+    lowerName[0].toUpperCase() +
+    lowerName.slice(1, indexOfSpace + 1) +
+    lowerName[indexOfSpace + 1].toUpperCase() +
+    lowerName.slice(-indexOfSpace - 1)
+  );
+};
+
+console.log(normalizeAuthorName("  JuliE sussMan (Contributor)"));
+
+// 16.2
+
+const newBookTitle = books[1].title.replace("Programs", "Software");
+console.log(newBookTitle);
+
+// 16.3
+const logBookTheme = (title) => {
+  const lowerTitle = title.toLowerCase();
+  if (lowerTitle.startsWith("computer"))
+    console.log("This book is about computers");
+  else if (
+    lowerTitle.includes("algorithms") &&
+    lowerTitle.inludes("structures")
+  )
+    console.log("This book is about algorithm and structures");
+  else if (
+    (lowerTitle.endsWith("system") || lowerTitle.endsWith("systems")) &&
+    !lowerTitle.includes("operating")
+  )
+    console.log(
+      "This book is about some systems, but definitely not about operating systems"
+    );
+};
+
+logBookTheme("Computers");
